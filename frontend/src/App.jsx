@@ -86,14 +86,41 @@ const App = () => {
   return (
     <div className="flex justify-between items-center w-screen min-h-screen bg-gray-200">
         <Navgation></Navgation>
-        <main className="flex flex-col justify-start items-start gap-3 p-5 w-3/4 min-h-screen">
+        <div className="w-1/4 h-screen"></div>
+        <main className="flex flex-col justify-start items-start gap-3 p-7 pt-5 pb-5 w-3/4 min-h-screen">
             <Estrofe
               title={"Introdução"} 
-              text={"djfni djf jdsf dfg  gfd sg dfm hpp ofidsafk gnfig dskf pp rpg  dsfjrj fjod gjf oj"}
+              text={"Como toda API funciona, essa basicamente dará e receberá informações para vocês relacionadas ao nosso projeto de PIE, basta usar os endpoint a seguir. Mas antes irei explicar brevemente a minha lógica para facilitar a usabilidade vocês. Tudo que vocês pedirem ou adicionarem, irão ou virão de um banco de dados, cujo foi resumido em duas tabelas: users e produts, onde users estão todos os dados relacionados aos usuários, como senha, login, nome e etc ... e produts relacionados a todos os tipos de objetos que os usuários desejam colocar a troca ou a venda no app. Lembrando que a relação entre essas tabelas é: 1 produto pertence a 1 usuário, mas 1 usuário pode ter vários produtos. A seguir tem as tabelas do banco, para vocês saberem quais informações terão que trabalhar para construir o projeto. Dúvidas? Não me procure ;)"}
             >
-                <Code title={"endpoint"}>
+                <Code title={"Tabelas do banco de dados"}>
                   { 
-                   `Colocar os endpoint e codigos aqui`
+                   `users (
+	id INT AUTO_INCREMENT,
+    nome VARCHAR(200),
+    cpf VARCHAR(20),
+    email VARCHAR(50),
+    senha VARCHAR(50),
+    foto VARCHAR(100),
+    fone VARCHAR(50),
+    PRIMARY KEY(id)
+);
+
+TABLE produts (
+	id INT AUTO_INCREMENT,
+    nome VARCHAR(200),
+    descricao VARCHAR(500),
+    categoria VARCHAR(50),
+    foto1 VARCHAR(100),
+	foto2 VARCHAR(100),
+	foto3 VARCHAR(100),
+	foto4 VARCHAR(100),
+    valor VARCHAR(10),
+    vendido BOOLEAN,
+    dataCriacao VARCHAR(20),
+    idUser INT,
+    PRIMARY KEY(id),
+    FOREIGN KEY (idUser) REFERENCES users(id)
+);`
                   }
                 </Code>
             </Estrofe>
