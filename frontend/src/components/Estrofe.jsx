@@ -6,7 +6,7 @@ const Estrofe = ({children, title, text}) => {
             <h2 className="font-bold text-xl border-b-2 border-black w-full text-start pb-2">
                 {title}
             </h2>
-            <p className="text-justify">
+            <p className="text-justify w-11/12">
                 {text}
             </p>
             {children}
