@@ -89,6 +89,7 @@ const App = () => {
         <div className="w-1/4 h-screen"></div>
         <main className="flex flex-col justify-start items-start gap-5 p-7 pt-5 pb-5 w-3/4 min-h-screen">
             <Estrofe
+              id={"intro"}
               title={"Introdução"} 
               text={"Como toda API funciona, essa basicamente dará e receberá informações para vocês relacionadas ao nosso projeto de PIE, basta usar os endpoint a seguir. Mas antes irei explicar brevemente a minha lógica para facilitar a usabilidade vocês. Tudo que vocês pedirem ou adicionarem, irão ou virão de um banco de dados, cujo foi resumido em duas tabelas: users e produts, onde users estão todos os dados relacionados aos usuários, como senha, login, nome e etc ... e produts relacionados a todos os tipos de objetos que os usuários desejam colocar a troca ou a venda no app. Lembrando que a relação entre essas tabelas é: 1 produto pertence a 1 usuário, mas 1 usuário pode ter vários produtos. A seguir tem as tabelas do banco, para vocês saberem quais informações terão que trabalhar para construir o projeto. Dúvidas? Não me procure ;)"}
             >
@@ -127,6 +128,7 @@ TABLE produts (
 
             {/* GET usuários*/}
             <Estrofe
+              id={"get-user"}
               title={"Buscar usuários cadastrados"} 
               text={"Essa requisição irá lhe retornar TODOS os usuários cadastrados no banco de dados, bastar colar a URL abaixo. Lembrando que sempre ela retornará TODOS os usuários, se quiser um especifico terá que puxar todos e filtrar com algum código interno"}
             >
@@ -137,6 +139,7 @@ TABLE produts (
 
             {/*GET produtos*/}
             <Estrofe
+              id={"get-product"}
               title={"Buscar produtos cadastrados"} 
               text={"Essa requisição irá lhe retornar TODOS os produtos cadastrados no banco de dados, bastar colar a URL abaixo. Lembrando que sempre ela retornará TODOS os produtos, se quiser um especifico terá que puxar todos e filtrar com algum código interno"}
             >
@@ -147,6 +150,7 @@ TABLE produts (
 
             {/*POST usuários*/}
             <Estrofe
+              id={"post-user"}
               title={"Adicionar novos usuários"} 
               text={"Essa requisição irá cadastrar no banco um novo usuário, é importante resaltar que na hora de fazer esta requisição, o objeto enviado no body esteja nesse modelo e com essas mesmas informações:"}
             >
@@ -167,6 +171,7 @@ TABLE produts (
 
             {/*POST produtos*/}
             <Estrofe
+              id={"post-product"}
               title={"Adicionar novos produtos"} 
               text={"Essa requisição irá cadastrar no banco um novo produto, é importante resaltar que na hora de fazer esta requisição, o objeto enviado no body esteja nesse modelo e com essas mesmas informações:"}
             >
@@ -190,8 +195,9 @@ TABLE produts (
                 </Code>
             </Estrofe>
 
-            {/*PUT produtos*/}
+            {/*PUT usuários*/}
             <Estrofe
+              id={"put-user"}
               title={"Atualizar dados de um usuário"} 
               text={"Essa requisição irá atualizar no banco um usuário, é importante resaltar que na hora de fazer esta requisição, o objeto enviado no body esteja nesse modelo e com essas mesmas informações: E caso não atualize todos os dados, vocês terão preencher todos os campos."}
             >
@@ -212,6 +218,7 @@ TABLE produts (
 
             {/*PUT produtos*/}
             <Estrofe
+              id={"put-product"}
               title={"Atualizar dados de um produto"} 
               text={"Essa requisição irá atualizar dados no banco um produto, é importante resaltar que na hora de fazer esta requisição, o objeto enviado no body esteja nesse modelo e com essas mesmas informações: e mesmo que não atualize todos os dados, vocês terão que preencher todos os campos."}
             >
@@ -237,6 +244,7 @@ TABLE produts (
 
             {/* DELETE usuários*/}
             <Estrofe
+              id={"delete-user"}
               title={"Deletar usuários cadastrados"} 
               text={"Essa requisição irá deletar um usuário do banco baseado no id do mesmo, por isso se atentem na hora que fazer a requisição passar o id do usuário como parâmetro também. Ex:"}
             >
@@ -247,6 +255,7 @@ TABLE produts (
 
             {/*DELETE produtos*/}
             <Estrofe
+              id={"delete-procuct"}
               title={"Deletar produtos cadastrados"} 
               text={"Essa requisição irá deletar um produto do banco baseado no id do mesmo, por isso se atentem na hora que fazer a requisição passar o id do produto como parâmetro também. Ex:"}
             >
