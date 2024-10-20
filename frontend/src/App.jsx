@@ -3,36 +3,20 @@ import Estrofe from "./components/Estrofe";
 import Code from "./components/Code";
 
 const App = () => {
-/*  const add = async () => {
+ const add = async () => {
     try {
-      const req = await fetch("http://localhost:8800/produts/2", {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nome : "Mouse não automatico",
-          descricao : "Porduto semi usado, com um pequeno defeito de fabrica",
-          categoria : "tecnologia",
-          foto1 : 'loysy@gamil.com',
-          foto2 : "12265978",
-          foto3 : "hptts://dsfndsljgasdojan.com",
-          foto4 : '989 48515 5656',
-          valor : '33,10',
-          vendido : true,
-          dataCriacao : "2024-09-28",
-          idUsuario : 2
-        })
-      })
+      const req = await fetch("https://tserriednich.vercel.app/users")
       const res = await req.json();
       console.log(res);
+      console.log("oie");
+      
     }  catch (error) {
-      console.error('Erro:', error);
+      console.error(error);
     }
   }
 
   
-  const add = async () => {
+ /* const add = async () => {
     try {
       const req = await fetch("http://localhost:8800/users/2", {
         method: 'PUT',
@@ -88,6 +72,9 @@ const App = () => {
         <Navgation></Navgation>
         <div className="w-1/4 h-screen"></div>
         <main className="flex flex-col justify-start items-start gap-5 p-7 pt-5 pb-5 w-3/4 min-h-screen">
+        <button onClick={() => add()} className="w-full bg-white">
+    oie
+        </button>
             <Estrofe
               id={"intro"}
               title={"Introdução"} 
