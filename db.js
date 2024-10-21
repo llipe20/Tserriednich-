@@ -1,8 +1,8 @@
 import mysql from 'mysql'
 
 export const db = mysql.createConnection({
-    host: "junction.proxy.rlwy.net",
+    host: "localhost",
     user: "root",
-    password: "xjkwJvKPLJXcQKVSzpBMhXUDtXaGqLVJ",
+    password: "nara1503",
     database: "tserriednich"
 })
