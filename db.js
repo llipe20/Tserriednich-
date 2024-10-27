@@ -8,7 +8,7 @@ export const db = new Client({
     database: "tserriednich",
     port: 5432,
     ssl: {
-        rejectUnauthorized: false,  // Ignora certificados autoassinados
+        rejectUnauthorized: false
     }
 });
 
