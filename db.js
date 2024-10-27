@@ -1,8 +1,17 @@
-import mysql from 'mysql'
+import pkg from 'pg';
+const { Client } = pkg;
 
-export const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "nara1503",
-    database: "tserriednich"
-})
+export const db = new Client({
+    host: "selflessly-deep-minivet.data-1.use1.tembo.io",
+    user: "postgres",
+    password: "VsRehw9umHEDVNY2",
+    database: "tserriednich",
+    port: 5432,
+    ssl: {
+        rejectUnauthorized: false,  // Ignora certificados autoassinados
+    }
+});
+
+db.connect()
+    .then(() => console.log("Conectado ao banco de dados com sucesso!"))
+    .catch(err => console.error("Erro ao conectar ao banco de dados:", err.stack));

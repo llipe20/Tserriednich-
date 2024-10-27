@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+</head>
+<body>
+    <form id="cadastroForm">
+        <div>
+            <label for="btn-nome">Nome:</label>
+            <input type="text" id="btn-nome" required>
+        </div>
+        <div>
+            <label for="btn-cpf">CPF:</label>
+            <input type="text" id="btn-cpf" required>
+        </div>
+        <div>
+            <label for="btn-email">Email:</label>
+            <input type="email" id="btn-email" required>
+        </div>
+        <div>
+            <label for="btn-senha">Senha:</label>
+            <input type="password" id="btn-senha" required>
+        </div>
+        <div>
+            <label for="btn-foto">Foto:</label>
+            <input type="file" id="btn-foto" accept="image/*" required>
+        </div>
+        <div>
+            <label for="btn-fone">Telefone:</label>
+            <input type="text" id="btn-fone" required>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        const cadastroForm = document.getElementById('cadastroForm');
+
+        cadastroForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const nome = document.getElementById('btn-nome').value;
+            const cpf = document.getElementById('btn-cpf').value;
+            const email = document.getElementById('btn-email').value;
+            const senha = document.getElementById('btn-senha').value;
+            const fone = document.getElementById('btn-fone').value;
+            const fotoInput = document.getElementById("btn-foto").files[0];
+
+            if (fotoInput) {
+                const reader = new FileReader();
+                reader.onloadend = async () => {
+                    const fotoDataUrl = reader.result; // Dados da imagem em Base64
+                    const value = {
+                        nome,
+                        cpf,
+                        email,
+                        senha,
+                        foto: fotoDataUrl, // Imagem em Base64
+                        fone
+                    };
+
+                    // Enviar os dados para o servidor
+                    try {
+                        const response = await fetch('http://localhost:8800/users/2', {
+                            method: 'DELETE', // Método DELETE
+                            headers: {
+                                'Content-Type': 'application/json' // Especifica que estamos enviando JSON
+                            }
+                        })
+
+                        if (!response.ok) {
+                            throw new Error('Erro na requisição');
+                        }
+
+                        const data = await response.json();
+                        console.log('Resposta do servidor:', data);
+                    } catch (error) {
+                        console.error('Erro ao enviar os dados:', error);
+                    }
+                };
+                reader.readAsDataURL(fotoInput);
+            }
+        });
+    </script>
+</body>
+</html>
