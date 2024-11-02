@@ -40,7 +40,7 @@ export const addUser = (req, res) => {
 
 // OPERAÇÕES POST - Adicionar PRODUTOS no banco
 export const addProduts = (req, res) => {
-    const query = "INSERT INTO produts (nome, descricao, categoria, foto1, foto2, foto3, foto4, valor, vendido, dataCriacao, idUser) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)";
+    const query = "INSERT INTO produts (nome, descricao, categoria, foto1, foto2, foto3, foto4, valor, vendido, datacriacao, iduser) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)";
     const values = [
         req.body.nome,
         req.body.descricao,

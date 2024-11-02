@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Supondo que cada usuário tenha um elemento com seu ID e um botão de deletar -->
+<div id="user-list">
+    <!-- Exemplo de item de usuário com ID 123 -->
+    <div class="user" data-user-id="123">
+        <input type="text" id="nome">
+        <button class="delete-button">Deletar</button>
+    </div>
+    <!-- Outros usuários... -->
+</div>
+
+<script>
+    // Função que lida com o clique no botão de deletar
+    document.getElementById('user-list').addEventListener('click', async function(event) {
+        // Verifica se o botão clicado é o de deletar
+        if (event.target.classList.contains('delete-button')) {
+            const userElement = event.target.closest('.user');
+            const userId = document.getElementById("nome").value
+
+            if (confirm('Tem certeza de que deseja deletar este usuário?')) {
+                try {
+                    // Faz a requisição DELETE para o backend
+                    const response = await fetch(`https://tserriednich.vercel.app/users/${userId}`, {
+                        method: 'DELETE',
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Erro ao deletar usuário: ' + response.statusText);
+                    }
+
+                    alert('Usuário deletado com sucesso!');
+                    userElement.remove(); // Remove o elemento do DOM após a exclusão
+
+                } catch (error) {
+                    console.error('Erro:', error);
+                    alert('Ocorreu um erro ao deletar o usuário.');
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
