@@ -82,7 +82,7 @@ export const UpdateUser = (req, res) => {
 
 // OPERAÇÕES PUT - Atualizar PRODUTO especifico no banco
 export const UpdateProduts = (req, res) => {
-    const query = "UPDATE produts SET nome = $1, descricao = $2, categoria = $3, foto1 = $4, foto2 = $5, foto3 = $6, foto4 = $7, valor = $8, vendido = $9, dataCriacao = $10, idUser = $11 WHERE id = $12";
+    const query = "UPDATE produts SET nome = $1, descricao = $2, categoria = $3, foto1 = $4, foto2 = $5, foto3 = $6, foto4 = $7, valor = $8, vendido = $9, datacriacao = $10, idusuario = $11 WHERE id = $12";
     const values = [
         req.body.nome,
         req.body.descricao,
